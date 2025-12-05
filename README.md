@@ -426,6 +426,68 @@ declare -g "${guard_var}=1"
 
 The function `show_final_status()` produces a final system status report and displays it in a dialog textbox at the end of each scriptrun.
 
+```bash
+show_final_status() {
+    STATUS_TMPFILE="$(mktemp /tmp/status.XXXXXX)"
+    STATUS_MSG="=== Final system status ===\n\n"
+
+    # Docker
+    if command -v docker >/dev/null 2>&1; then
+        STATUS_MSG+="✔ Docker: installed\n"
+    else
+        STATUS_MSG+="• Docker: not installed\n"
+    fi
+
+    # Docker Compose
+    if command -v docker-compose >/dev/null 2>&1; then
+        STATUS_MSG+="✔ Docker Compose: installed\n"
+    else
+        STATUS_MSG+="• Docker Compose: not installed\n"
+    fi
+
+    # Portainer
+    PORT_NAME="${PORTAINER_NAME:-portainer}"
+    if command -v docker >/dev/null 2>&1; then
+        if docker ps -a --format '{{.Names}}' | grep -x "$PORT_NAME" >/dev/null 2>&1; then
+            if docker ps --format '{{.Names}}' | grep -x "$PORT_NAME" >/dev/null 2>&1; then
+                STATUS_MSG+="✔ Portainer: container running\n"
+            else
+                STATUS_MSG+="⚠ Portainer: container present but stopped\n"
+            fi
+        else
+            STATUS_MSG+="• Portainer: no container\n"
+        fi
+    else
+        STATUS_MSG+="• Portainer: docker unavailable\n"
+    fi
+
+    # Open-WebUI
+    WEBUI_NAME="${WEBUI_NAME:-open-webui}"
+    if command -v docker >/dev/null 2>&1; then
+        if docker ps -a --format '{{.Names}}' | grep -x "$WEBUI_NAME" >/dev/null 2>&1; then
+            if docker ps --format '{{.Names}}' | grep -x "$WEBUI_NAME" >/dev/null 2>&1; then
+                STATUS_MSG+="✔ Open-WebUI: container running\n"
+            else
+                STATUS_MSG+="⚠ Open-WebUI: container present but stopped\n"
+            fi
+        else
+            STATUS_MSG+="• Open-WebUI: no container\n"
+        fi
+    else
+        STATUS_MSG+="• Open-WebUI: docker unavailable\n"
+    fi
+
+    STATUS_MSG+="\nTime: $(date '+%Y-%m-%d %H:%M:%S')\n"
+    STATUS_MSG+="=============================\n"
+
+    printf "%b" "$STATUS_MSG" > "$STATUS_TMPFILE"
+    
+    # Create dialog window
+    dialog --exit-label "OK" --title "System Status" --textbox "$STATUS_TMPFILE" 0 40
+    rm -f "$STATUS_TMPFILE"
+}
+```
+
 ### 1. **Create a temporary file**
 
    ```bash
