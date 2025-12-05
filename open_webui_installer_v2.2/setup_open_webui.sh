@@ -17,7 +17,7 @@ import() {
   done
 }
 
-# short logging helpers for main (bootstrap defines nicer ones)
+# Short logging helpers for main (bootstrap defines nicer ones)
 info(){ printf '[I] %s\n' "$*"; }
 err(){ printf '[E] %s\n' "$*" >&2; }
 
