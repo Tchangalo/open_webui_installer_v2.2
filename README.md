@@ -496,19 +496,7 @@ show_final_status() {
    `command -v docker` determines whether the `docker` binary exists.\
    The result (“installed” or “not installed”) is appended to `STATUS_MSG`.
 
-### 4. **Check whether Docker Compose is installed**
-
-   ```bash
-   if command -v docker-compose >/dev/null 2>&1; then
-       STATUS_MSG+="✔ Docker Compose: installed\n"
-   else
-       STATUS_MSG+="• Docker Compose: not installed\n"
-   fi
-   ```
-
-   Same mechanism as above, but for `docker-compose`.
-
-### 5. **Append timestamp and footer**
+### 4. **Append timestamp and footer**
 
    ```bash
    STATUS_MSG+="\nTime: $(date '+%Y-%m-%d %H:%M:%S')\n"
@@ -517,7 +505,7 @@ show_final_status() {
 
    Adds the current time and a closing separator.
 
-### 6. **Write the status message to the temporary file**
+### 5. **Write the status message to the temporary file**
 
    ```bash
    printf "%b" "$STATUS_MSG" > "$STATUS_TMPFILE"
@@ -525,7 +513,7 @@ show_final_status() {
 
    `%b` ensures escape sequences like `\n` are interpreted correctly.
 
-### 7. **Display the status in a dialog textbox**
+### 6. **Display the status in a dialog textbox**
 
    ```bash
    dialog --exit-label "OK" --title "System Status" --textbox "$STATUS_TMPFILE" 0 40
@@ -533,7 +521,7 @@ show_final_status() {
 
    Shows a scrollable dialog window with the content of the temporary file.
 
-### 8. **Remove the temporary file**
+### 7. **Remove the temporary file**
 
    ```bash
    rm -f "$STATUS_TMPFILE"
