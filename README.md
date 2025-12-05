@@ -438,29 +438,8 @@ show_final_status() {
         STATUS_MSG+="• Docker: not installed\n"
     fi
 
-    # Docker Compose
-    if command -v docker-compose >/dev/null 2>&1; then
-        STATUS_MSG+="✔ Docker Compose: installed\n"
-    else
-        STATUS_MSG+="• Docker Compose: not installed\n"
-    fi
-
-    # Portainer
-    PORT_NAME="${PORTAINER_NAME:-portainer}"
-    if command -v docker >/dev/null 2>&1; then
-        if docker ps -a --format '{{.Names}}' | grep -x "$PORT_NAME" >/dev/null 2>&1; then
-            if docker ps --format '{{.Names}}' | grep -x "$PORT_NAME" >/dev/null 2>&1; then
-                STATUS_MSG+="✔ Portainer: container running\n"
-            else
-                STATUS_MSG+="⚠ Portainer: container present but stopped\n"
-            fi
-        else
-            STATUS_MSG+="• Portainer: no container\n"
-        fi
-    else
-        STATUS_MSG+="• Portainer: docker unavailable\n"
-    fi
-
+[...]
+    
     # Open-WebUI
     WEBUI_NAME="${WEBUI_NAME:-open-webui}"
     if command -v docker >/dev/null 2>&1; then
