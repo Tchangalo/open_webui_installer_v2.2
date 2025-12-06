@@ -424,7 +424,7 @@ declare -g "${guard_var}=1"
 
 ## New Feature of open_webui_installer_v2.2
 
-The function `show_final_status()` produces a final system status report and displays it in a dialog textbox at the end of each scriptrun.
+The function `show_final_status()` produces a final system status report and displays it in a dialog textbox at the end of each script run.
 
 ```bash
 show_final_status() {
