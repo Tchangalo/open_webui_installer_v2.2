@@ -115,10 +115,10 @@ main() {
 
   # --- Reboot only if Open-WebUI was newly set up ---
   if [ "${WEBUI_INSTALLED}" -eq 1 ]; then
-      info "Open WebUI was (re)installed — rebooting..."
+      info "Open WebUI was (re-)set up — rebooting..."
       ${SUDO:-} reboot
   else
-      info "Open WebUI not installed this run — reboot skipped."
+      info "Open WebUI not set up this run — reboot skipped."
   fi
 
 }
