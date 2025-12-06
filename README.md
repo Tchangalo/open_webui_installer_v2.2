@@ -262,7 +262,7 @@ While _open\_webui_installer_v1.0_ simply installs/sets up the four modules Dock
 1. Do you want to _install_ or _remove_?
 2. Which _module(s)_ do you want to install (or remove)?
 
-Additionally, a summary of the current status of the four modules is provided at both the beginning and (eventually) the end of the script run.
+Additionally, a summary of the current status of the four modules is provided at both the beginning and the end of the script run.
 
 _open\_webui_installer_v2.0_ is therefore also suitable for quickly installing one or more modules in a convenient way as part of other projects.
 
