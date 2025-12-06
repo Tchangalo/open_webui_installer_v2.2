@@ -210,7 +210,7 @@ The script should run without changes on all Debian-based systems, I guess.
 1. Copy the _inner_ folder `open_webui_installer_v2.1` to the home directory of the user, e.g:
 
 ```
-scp open_webui_installer_v2.1 <username>@<server-ip>:/home/<username>
+scp open_webui_installer_v2.2 <username>@<server-ip>:/home/<username>
 ```
 
 2. Make all scripts in the folder executable:
@@ -222,7 +222,7 @@ sudo chmod -R +x setup_open_webui.sh
 3. Change into the installer directory:
 
 ```bash
-cd open_webui_installer_v2.1
+cd open_webui_installer_v2.2
 ```
 
 4. Run the setup script:
