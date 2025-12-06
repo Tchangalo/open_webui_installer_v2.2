@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Import system
+# --- Import system ---
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULE_DIR="$DIR/modules"
 
@@ -12,7 +12,6 @@ import() {
       printf 'ERROR: module not found: %s\n' "$file" >&2
       exit 1
     fi
-    # shellcheck disable=SC1090
     source "$file"
   done
 }
