@@ -40,14 +40,14 @@ install_portainer() {
 }
 
 remove_portainer_if_installed() {
-  # Remove Portainer container and its volume
+  # Remove Portainer container and its volume 
   if ${SUDO} docker ps -a --format '{{.Names}}' | grep -x "${PORTAINER_NAME}" >/dev/null 2>&1; then
     warn "Removing existing Portainer container."
     ${SUDO} docker rm -f "${PORTAINER_NAME}" || true
   else
     info "No Portainer container present."
   fi
-  # Remove portainer volume if exists
+  # Remove portainer volume if exists. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA/MODELS
   if ${SUDO} docker volume ls --format '{{.Name}}' | grep -x "${PORTAINER_VOLUME}" >/dev/null 2>&1; then
     ${SUDO} docker volume rm "${PORTAINER_VOLUME}" || true
     succ "Portainer volume '${PORTAINER_VOLUME}' removed."
