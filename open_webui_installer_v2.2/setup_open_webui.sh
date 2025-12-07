@@ -36,12 +36,12 @@ main() {
     if prompt_yes_no "Install Docker?"; then DOCKER_SEL="yes"; else DOCKER_SEL="no"; fi
     if prompt_yes_no "Install Docker Compose?"; then COMPOSE_SEL="yes"; else COMPOSE_SEL="no"; fi
     if prompt_yes_no "Install Portainer?"; then PORTAINER_SEL="yes"; else PORTAINER_SEL="no"; fi
-    if prompt_yes_no "Install Open-WebUI?"; then WEBUI_SEL="yes"; else WEBUI_SEL="no"; fi
+    if prompt_yes_no "Install Open WebUI?"; then WEBUI_SEL="yes"; else WEBUI_SEL="no"; fi
   else
     if prompt_yes_no "Remove Docker (and associated data)?"; then DOCKER_SEL="yes"; else DOCKER_SEL="no"; fi
     if prompt_yes_no "Remove Docker Compose?"; then COMPOSE_SEL="yes"; else COMPOSE_SEL="no"; fi
     if prompt_yes_no "Remove Portainer (container + volume)?"; then PORTAINER_SEL="yes"; else PORTAINER_SEL="no"; fi
-    if prompt_yes_no "Remove Open-WebUI (container + volumes)?"; then WEBUI_SEL="yes"; else WEBUI_SEL="no"; fi
+    if prompt_yes_no "Remove Open WebUI (container + volumes)?"; then WEBUI_SEL="yes"; else WEBUI_SEL="no"; fi
   fi
 
   ACTIONS_PERFORMED=0
