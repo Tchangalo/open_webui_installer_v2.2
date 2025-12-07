@@ -116,6 +116,7 @@ docker volume ls --format '{{.Name}}' | grep -x 'portainer_data' >/dev/null 2>&1
 ``` 
 
 Remove the volume if it exists:
+
 IMPORTANT: If you want to keep your Data, comment this out in the script!
 
 ```bash
@@ -156,6 +157,7 @@ docker volume ls --format '{{.Name}}' | grep -x 'open-webui' >/dev/null 2>&1
 ```
 
 Remove the ollama and the Open WebUI volumes, if they exist: 
+
 IMPORTANT: If you want to keep your Data/Modells, comment this out in the script.
 
 ```bash
