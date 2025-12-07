@@ -16,10 +16,6 @@ import() {
   done
 }
 
-# Short logging helpers for main (bootstrap defines nicer ones)
-info(){ printf '[I] %s\n' "$*"; }
-err(){ printf '[E] %s\n' "$*" >&2; }
-
 # Import modules explicitly (order controlled here)
 import 00-bootstrap docker docker_compose portainer open_webui
 
