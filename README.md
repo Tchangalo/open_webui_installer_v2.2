@@ -567,5 +567,5 @@ show_final_status() {
 Due to the compatibility fix, Portainer will be ```running``` but not ```healthy```.
 Functionally it works; to have it ```healthy```, use Docker 28 and comment out the fix in the script.
 
-On the very first start, eventually the open-webui container needs to be restarted again, or you may even need to perform a reboot, to jump to ```healthy```. The loading glitches of the Open WebUI container occur only when a new image is pulled — that is, when Docker has been freshly installed. If an image is already present, the container quickly switches to ```healthy```.
+On the very first start, eventually the open-webui container needs to be restarted again in order to jump to ```healthy``` or you may even need to perform a reboot. The loading glitches of the Open WebUI container occur only when a new image is pulled — that is, when Docker has been freshly installed. If an image is already present, the container quickly switches to ```healthy```.
 
