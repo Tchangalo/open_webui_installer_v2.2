@@ -12,6 +12,11 @@ install_webui() {
     warn "Existing open-webui container found — removing."
     ${SUDO} docker rm -f open-webui || true
   fi
+  # Remove portainer volume if exists. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA/MODELLS
+  if ${SUDO} docker volume ls --format '{{.Name}}' | grep -x "${PORTAINER_VOLUME}" >/dev/null 2>&1; then
+    ${SUDO} docker volume rm "${PORTAINER_VOLUME}" || true
+    succ "Portainer volume '${PORTAINER_VOLUME}' removed."
+  fi
   info "Creating volumes (ollama, open-webui)."
   ${SUDO} docker volume create ollama >/dev/null || true
   ${SUDO} docker volume create open-webui >/dev/null || true
