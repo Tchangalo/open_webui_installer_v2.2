@@ -89,7 +89,7 @@ main() {
     ACTIONS_PERFORMED=$((ACTIONS_PERFORMED+1))
   fi
 
-  # Open-WebUI
+  # Open WebUI
   if [[ "${WEBUI_SEL}" == "yes" && "${ACTION}" == "install" ]]; then
     info "==> Open-WebUI: starting installation"
     install_webui
