@@ -22,17 +22,18 @@ EOF
 }
 
 install_portainer() {
-  # Create volume and run Portainer container
+  # Remove Portainer container, if present
   ${SUDO} docker volume create "${PORTAINER_VOLUME}" >/dev/null
   if ${SUDO} docker ps -a --format '{{.Names}}' | grep -x "${PORTAINER_NAME}" >/dev/null 2>&1; then
     warn "Existing Portainer container found — removing."
     ${SUDO} docker rm -f "${PORTAINER_NAME}" || true
   fi
-  # Remove portainer volume if exists. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA
+  # Remove Portainer volume, if exists. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA
   if ${SUDO} docker volume ls --format '{{.Name}}' | grep -x "${PORTAINER_VOLUME}" >/dev/null 2>&1; then
     ${SUDO} docker volume rm "${PORTAINER_VOLUME}" || true
     succ "Portainer volume '${PORTAINER_VOLUME}' removed."
   fi
+  # Create volume and run Portainer container
   info "Deploying Portainer container."
   ${SUDO} docker run -d \
     -p ${PORTAINER_PORT_EDGE}:8000 -p ${PORTAINER_PORT_HTTP}:9000 \
@@ -45,14 +46,14 @@ install_portainer() {
 }
 
 remove_portainer_if_installed() {
-  # Remove Portainer container and its volume 
+  # Remove Portainer container, if present
   if ${SUDO} docker ps -a --format '{{.Names}}' | grep -x "${PORTAINER_NAME}" >/dev/null 2>&1; then
     warn "Removing existing Portainer container."
     ${SUDO} docker rm -f "${PORTAINER_NAME}" || true
   else
     info "No Portainer container present."
   fi
-  # Remove portainer volume if exists. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA
+  # Remove Portainer volume, if exists. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA
   if ${SUDO} docker volume ls --format '{{.Name}}' | grep -x "${PORTAINER_VOLUME}" >/dev/null 2>&1; then
     ${SUDO} docker volume rm "${PORTAINER_VOLUME}" || true
     succ "Portainer volume '${PORTAINER_VOLUME}' removed."
