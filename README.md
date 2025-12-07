@@ -304,7 +304,7 @@ Of course, users need to think carefully about their actions: for example, if so
 
 ---
 ## New Features of open_webui_installer_v2.1
-Der _open\_webui\_installer\_v2.1_ does not introduce any new functionality. Only the helper functions have been moved into separate modules. The connection between the main script and the modules containing the helper functions is established by adding the following codeblocks to the modules and the main script:
+_open\_webui\_installer\_v2.1_ does not introduce any new functionality. Only the helper functions have been moved into separate modules. The connection between the main script and the modules containing the helper functions is established by adding the following codeblocks to the modules and the main script:
 
 ## **(a) Helper functions modules**
 Each module begins with a codeblock of the following type:
