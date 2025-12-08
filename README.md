@@ -198,7 +198,7 @@ Anyone who simply runs the script without understanding the process will not kno
 
 Second, the script is for anyone who failed while performing a manual installation.
 
-Third, it can be interesting to see how the commands listed above can be packaged into a Bash script.
+Third, it can be interesting to see how the commands listed above can be packaged into a Bash script — that is, how Bash imperatives can be controlled and orchestrated through procedures (functions).
 
 ---
 
