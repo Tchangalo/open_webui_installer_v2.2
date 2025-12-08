@@ -248,7 +248,7 @@ scp open_webui_installer_v2.2 <username>@<server-ip>:/home/<username>
 2. Make all scripts in the folder executable:
 
 ```
-sudo chmod -R +x setup_open_webui.sh
+sudo chmod -R +x setup_open_webui_v2.2
 ```
 
 3. Change into the installer directory:
