@@ -239,8 +239,12 @@ The script should run without changes on all Debian-based systems, I guess.
 
 ## Quickstart
 
-1. Copy the _inner_ folder `open_webui_installer_v2.1` to the home directory of the user, e.g:
+0. Install Dependency:
+```
+sudo apt install -y dialog
+```
 
+1. Copy the _inner_ folder open_webui_installer_v2.11` to the home directory of the user, e.g:
 ```
 scp open_webui_installer_v2.2 <username>@<server-ip>:/home/<username>
 ```
@@ -253,7 +257,7 @@ sudo chmod -R +x setup_open_webui_v2.2
 
 3. Change into the installer directory:
 
-```bash
+````
 cd open_webui_installer_v2.2
 ```
 
