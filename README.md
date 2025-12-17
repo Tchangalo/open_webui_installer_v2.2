@@ -245,19 +245,20 @@ sudo apt install -y dialog
 ```
 
 1. Copy the _inner_ folder open_webui_installer_v2.11` to the home directory of the user, e.g:
-```
+
+```bash
 scp open_webui_installer_v2.2 <username>@<server-ip>:/home/<username>
 ```
 
 2. Make all scripts in the folder executable:
 
-```
+```bash
 sudo chmod -R +x setup_open_webui_v2.2
 ```
 
 3. Change into the installer directory:
 
-````
+```bash
 cd open_webui_installer_v2.2
 ```
 
