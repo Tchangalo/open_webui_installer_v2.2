@@ -244,7 +244,7 @@ The script should run without changes on all Debian-based systems, I guess.
 sudo apt install -y dialog
 ```
 
-1. Copy the _inner_ folder open_webui_installer_v2.11` to the home directory of the user, e.g:
+1. Copy the _inner_ folder open_webui_installer_v2.2` to the home directory of the user, e.g:
 
 ```bash
 scp open_webui_installer_v2.2 <username>@<server-ip>:/home/<username>
